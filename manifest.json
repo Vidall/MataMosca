@@ -7,7 +7,7 @@
     "start_url": "index.html",
     "icons": [
       {
-        "src": "/images/icons/logo.png",
+        "src": "images/icons/logo.png",
         "sizes": "512x512",
         "purpose": "any maskable"
       }
