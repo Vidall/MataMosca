@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="canonical" href="https://vidall.github.io/MataMosca/">
+    <meta name="theme-color" content="#37c5a8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="edson iOS">
+    <link rel="apple-touch-icon" href="images/icons/logo.png">
+    <link rel="manifest" href="manifest.json" /> 
+
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="shortcut icon" href="images/icons/logo.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script>
+        function iniciarJogo() {
+            var nivel = document.getElementById('dificuldade').value
+            if (nivel == '') {
+                alert('Selecione o nivel de dificuldade')
+
+            } else {
+                window.location.href = 'jogo.html?' + nivel
+            }
+        }
+    </script>
+    <title>App Mata Mosquito</title>
+</head>
+<body>   
+    <script>
+        // This is the service worker with the Cache-first network
+        // Add this below content to your HTML page, or add the js file to your page at the very top to 
+        // register service worker
+        // Check compatibility for the browser we're running this in
+        if ("serviceWorker" in navigator) {
+            if (navigator.serviceWorker.controller) {
+                console.log("[PWA Builder] active service worker found, no need to register");
+            } else {
+            // Register the service worker
+                navigator.serviceWorker
+                .register("pwabuilder-sw.js", {
+                    scope: "./"
+                })
+                .then(function (reg) {
+                    console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
+                });
+            }
+        }
+    </script>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="d-flex justify-content-center">
+                    <img id='imagem-fimJogo' src="imagens/game.png" alt="Fim de jogo">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="d-flex justify-content-center">
+                    <select id="dificuldade" class="form-control" name="" id="">
+                        <option value="">--Selecionar Nível--</option>
+                        <option value="normal">--Normal--</option>
+                        <option value="dificil">--Dificil--</option>
+                        <option value="impossivel">--Impossivel--</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="row">
+            <div class="col">
+                <div class="d-flex justify-content-center">
+                    <button onclick="iniciarJogo()" class="btn btn-danger btn-lg">Iniciar Jogo</button>
+                </div>
+            </div>
+        </div>
+
+
+        
+    </div>
+</body>
+</html>
